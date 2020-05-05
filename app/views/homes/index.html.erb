@@ -1,0 +1,101 @@
+<header class="header">
+  <div class="header__title">
+    <%= link_to "Kids Channel", root_path, class: "header__title__top" %>
+  </div>
+  <div class="header__navi">
+    <ul class="header__navi--top">
+      <li class="header__navi--top__genre">動画ジャンル
+        <ul>
+          <li><%= link_to "アニメ", videos_path, class: "header__navi--genre" %></li>
+          <li><%= link_to "勉強", study_videos_path, class: "header__navi--genre" %></li>
+          <li><%= link_to "動物", animal_videos_path, class: "header__navi--genre" %></li>
+        </ul>
+      </li>
+    </ul>
+    <li><%= link_to "みんなの掲示板一覧", posts_path, class: "header__navi--board" %></li>
+    <% if user_signed_in? %>
+      <ul class="header__navi--top">
+        <li class="header__navi--top__genre"><%= current_user.name %>
+          <ul>
+            <li id="evryone"><%= link_to "あなたの投稿一覧", "/users/#{current_user.id}", class: "header__navi--genre" %></li>
+            <li><%= link_to "アカウント編集", edit_user_registration_path, class: "header__navi--genre" %></li>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__navi--genre" %></li>
+          </ul>
+        </li>
+      </ul>
+        <li><%= link_to "掲示板投稿", new_post_path, class: "posts__navi--board" %><li>
+    <% else %>
+      <li><%= link_to "ログイン", new_user_session_path , class: "posts__navi--user" %></li>
+    <% end %>
+  </div> 
+</header>
+
+<div class="youtube">
+  <div id="player1"></div>
+
+  <div class="message">
+    <h1 class="message__top">#お家にいよう🏠</h1>
+    <p class="message__body">
+      小学生を対象にしたコンテンツ動画がこのサイトにあります。<br>今人気のアニメやお笑い芸人が教える学習動画カワイイ動物の動画など、このサイトは家にいても退屈しない動画をまとめました。今人気のアニメやお笑い芸人が教える学習動画、カワイイ動物の動画などこのサイトは家にいても退屈しない動画をまとめました。今人気のアニメやお笑い芸人が教える学習動画、カワイイ動物の動画などこのサイトは家にいても退屈しない動画をまとめました。今人気のアニメやお笑い芸人が教える学習動画、カワイイ動物の動画などこのサイトは家にいても退屈しない動画をまとめました。<br>
+      自宅でできることをしよう！また、動画を観て掲示板にメッセージを残そう！！
+    </p>
+  </div>
+</div>
+
+<script>
+  var tag = document.createElement('script');
+
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  var youtubeVideos = [
+    {
+      youtubeId: 'LbYijVgaqhs',
+      embedArea: 'player1'
+    }
+  ];
+
+  function onYouTubeIframeAPIReady() {
+    for (var i = 0; i < youtubeVideos.length; i++) {
+      youtubeVideos[i]['embedArea'] = new YT.Player(youtubeVideos[i]['embedArea'], {
+        height: '800',
+        width: '100%',
+        videoId: youtubeVideos[i]['youtubeId'],
+        events: {
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
+        }
+      });
+    }
+  }
+
+  function onPlayerReady(event) {
+    event.target.playVideo();
+  }
+
+  function onPlayerStateChange(event) {
+    event.target.mute();
+  }
+</script>
+
+<section class="contents">
+  <h2 class="title">動画ジャンル</h2>
+  <div class="contents__genre">
+    <div class="contents__box__anime">
+      <div class="contents__box__anime--link">
+        <%= link_to "アニメ", videos_path, class: "anime" %>
+      </div>
+    </div>
+    <div class="contents__box__study">
+      <div class="contents__box__study--link">
+        <%= link_to "勉強", study_videos_path, class: "study" %>
+      </div>
+    </div>
+    <div class="contents__box__dog">
+      <div class="contents__box__dog--link">
+        <%= link_to "動物", animal_videos_path, class: "dog" %>
+      </div>
+    </div>
+  </div>
+</section>

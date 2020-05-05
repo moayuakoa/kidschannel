@@ -1,0 +1,246 @@
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+.header {
+  width: 100%;
+  height: 80px;
+  background-color: black;
+  display: flex;
+  z-index: 1;
+  position: fixed;
+  box-shadow: inset 0 0 5px 8px #333;
+  
+  &__title {
+    padding-left: 50px;
+    font-size: 50px;
+    line-height: 80px;
+    &__top {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+  }
+  &__navi {
+    display: flex;
+    line-height: 80px;
+    margin-left: 50px;
+  .header__navi--top {
+      color: white;
+      font-weight: bold;
+      margin-left: 100px;
+      list-style-type: none;
+      width: 150px;
+
+    }
+  .header__navi--top li {
+      position: relative;
+      width: 150px;
+      float: left;
+      text-align: center;
+    }
+    .header__navi--top li a {
+      display: block;
+      background: #000000;
+      font-weight: bold;
+      color: #FFFFFF;
+      font-size: 15px;
+      text-decoration: none;
+      border: 1px solid lightgray;
+    }
+    .header__navi--top a {
+      height: 20px;
+      line-height: 20px;
+      padding: 10px 0;
+    }
+    .header__navi--top li ul {
+      list-style: none;
+      position: absolute;
+      z-index: 99999;
+      top: 80px;
+      left: 0;
+      margin: 0;
+      padding: 0;
+    }
+    .header__navi--top li ul li {
+      width: 150px;
+    }
+    .header__navi--top li ul li a {
+      background: black;
+      text-align: center;
+    }
+    .header__navi--top li ul {
+      display:none;
+    }
+    .header__navi--top li:hover ul {
+      display: block;
+    }
+    #evryone {
+      width: 150px;
+    }
+    &--board {
+      text-decoration: none;
+      font-weight: bold;
+      color: white;
+      margin-left: 30px;
+    }
+  }
+}
+
+// youtube
+.youtube {
+  position: relative;
+  width: 100%;
+  height: 800px;
+}
+.message {
+  position: absolute;
+  top: 250px;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  background-color: white;
+  height: 350px;
+  &__top {
+    font-size: 80px;
+    font-weight: bold;
+  }
+  &__body {
+    font-size: 20px;
+    text-align: center;
+    color: blue;
+    padding-top: 20px;
+    
+  }
+}
+#player1 {
+  opacity: 0.3;
+}
+
+// contents
+.contents {
+  width: 100%;
+  height: 500px;
+  background-color: burlywood;
+  color: white;
+  text-align: center;
+  .title {
+    font-size: 50px;
+    padding-top: 10px;
+    border-bottom: 10px double white;
+    margin: 0;
+    padding-top: 0;
+  }
+  &__genre {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+    .contents__box__anime {
+      height: 300px;
+      width: 300px;
+      background: url('/animes.png');
+      background-size:  cover;
+      box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);
+      &--link {
+        width: 200px;
+        height: 80px;
+        padding-top: 30px;
+        margin: 0 auto;
+        .anime {
+          padding: 10px 40px;
+          font-size: 20px;
+          font-weight: bold;
+          color: black;
+          text-decoration: none;
+          border: 1px solid black;
+          border-radius: 1rem;
+        }
+      }
+    }
+    .contents__box__study {
+      height: 300px;
+      width: 300px;
+      background: url('/studys.png');
+      background-size:  cover;
+      box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);
+      &--link {
+        width: 200px;
+        height: 80px;
+        padding-top: 30px;
+        margin: 0 auto;
+        .study {
+          padding: 10px 50px;
+          font-size: 20px;
+          font-weight: bold;
+          color: black;
+          text-decoration: none;
+          border: 1px solid black;
+          border-radius: 1rem;
+        }
+      }
+    }
+
+    .contents__box__dog {
+      height: 300px;
+      width: 300px;
+      background: url('/dogs.png'); 
+      background-size:  cover;
+      box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);
+      &--link {
+        width: 200px;
+        height: 80px;
+        padding-top: 30px;
+        margin: 0 auto;
+        .dog {
+          padding: 10px 50px;
+          font-size: 20px;
+          font-weight: bold;
+          color: black;
+          text-decoration: none;
+          border: 1px solid black;
+          border-radius: 1rem;
+        }
+      }
+    }
+  }
+}
+
+// genreのlink
+.anime {
+  background-color: white;
+  transition: 0.15s;
+}
+.anime:hover {
+  box-shadow: inset 0 0 5px 5px lightpink;
+  opacity: 0.9;
+}
+.study {
+  background-color: white;
+  transition: 0.15s;
+}
+.study:hover {
+  box-shadow: inset 0 0 5px 5px lightgreen;
+  opacity: 0.9;
+}
+.dog {
+  background-color: white;
+  transition: 0.15s;
+}
+.dog:hover {
+  box-shadow: inset 0 0 5px 5px burlywood;
+  opacity: 0.9;
+}
+
+// footer
+.footer {
+  width: 100%;
+  height: 80px;
+  background-color: darkcyan;
+  p {
+    line-height: 80px;
+    text-align: center;
+    margin: 0;
+    color: white; 
+  }
+} 

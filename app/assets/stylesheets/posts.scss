@@ -1,0 +1,101 @@
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+.posts__navi--board {
+  text-decoration: none;
+  color: white;
+  margin-right: 50px;
+}
+.posts__navi--user {
+  text-decoration: none;
+  color: white;
+  margin-left: 300px;
+}
+.posts__navi--usernew {
+  text-decoration: none;
+  color: white;
+  margin-left: 50px;
+}
+
+
+// new
+.h1 {
+  font-size: 50px;
+  text-align: center;
+  background-color: beige;
+  padding-top: 75px;
+  line-height: 75px;
+}
+.new {
+  text-align: center;
+  margin-top: 30px;
+&__nickname {
+  margin-bottom: 30px;
+}
+&__comment {
+  margin-bottom: 50px;
+}
+}
+textarea {
+  resize: horizontal;
+  width:600px;
+  height:200px;
+  cursor: pointer;
+}
+input {
+  cursor: pointer;
+  width: 200px;
+}
+
+// indexとshow
+.contents--box {
+  width: 100%;
+  height: calc(100% - 230px);
+  background: url('/rooms.png'); 
+  background-size:  cover;
+  color: black;
+  text-align: center;
+  overflow: scroll;
+}
+.posts {
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+}
+.post {
+  border: 1px solid;
+  width: 100%;
+  margin-top: 30px;
+  .post-date{
+    color: gray;
+  }
+  .post-name__userName {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+  }
+  .post-content__message {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+  }
+}
+.post-destroy__delete {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  display: inline-block;
+  padding: 0.2em 1em;
+  text-decoration: none;
+  color: black;
+  border: solid 2px white;
+  border-radius: 3px;
+  transition: .4s;
+  margin-left: 50px;
+}
+.post-destroy__delete:hover {
+  background: white;
+  color: black;
+}

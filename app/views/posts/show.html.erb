@@ -1,0 +1,54 @@
+<header class="header">
+  <div class="header__title">
+    <%= link_to "Kids Channel", root_path, class: "header__title__top" %>
+  </div>
+  <div class="header__navi">
+    <ul class="header__navi--top">
+      <li class="header__navi--top__genre">動画ジャンル
+        <ul>
+          <li><%= link_to "アニメ", videos_path, class: "header__navi--genre" %></li>
+          <li><%= link_to "勉強", study_videos_path, class: "header__navi--genre" %></li>
+          <li><%= link_to "動物", animal_videos_path, class: "header__navi--genre" %></li>
+        </ul>
+      </li>
+    </ul>
+    <%= link_to "掲示板一覧", posts_path, class: "header__navi--board" %>
+    <% if user_signed_in? %>
+      <ul class="header__navi--top">
+        <li class="header__navi--top__genre"><%= current_user.name %>
+          <ul>
+           <li id="evryone"><%= link_to "あなたの投稿一覧", "/users/#{current_user.id}", class: "header__navi--genre" %></li>
+            <li><%= link_to "アカウント編集", edit_user_registration_path, class: "header__navi--genre" %></li>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__navi--genre" %></li>
+          </ul>
+        </li>
+      </ul>
+        <%= link_to "掲示板投稿", new_post_path, class: "posts__navi--board" %>
+    <% else %>
+      <%= link_to "ログイン", new_user_session_path , class: "posts__navi--user" %>
+      <%= link_to "新規登録", new_user_registration_path, class: "posts__navi--usernew" %>
+    <% end %>
+  </div> 
+</header>
+
+<h1 class="h1">
+  <%= @post.name %>さんの投稿一覧
+</h1>
+<div class="contents--box">
+  <div class="posts">
+    <% if user_signed_in? && current_user.id == @post.user_id %>
+      <%= link_to "削除", post_path(@post.id), method: :delete, class: "post-destroy__delete" %>
+    <% end %>
+    <div class="post">
+      <div class="post-date">
+        投稿日時：<%= @post.created_at %>
+      </div>
+      <div class="post-name__userName">
+        ニックネーム：<%= @post.name %>
+      </div>
+      <div class="post-content__message">
+        コメント：<%= @post.content %>
+      </div>
+    </div>
+  </div>
+</div>

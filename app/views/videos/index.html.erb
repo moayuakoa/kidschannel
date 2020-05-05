@@ -1,0 +1,85 @@
+<header class="header">
+  <div class="header__title">
+    <%= link_to "Kids Channel", root_path, class: "header__title__top" %>
+  </div>
+  <div class="header__navi">
+    <ul class="header__navi--top">
+      <li class="header__navi--top__genre">動画ジャンル
+        <ul>
+          <li><%= link_to "アニメ", videos_path, class: "header__navi--genre" %></li>
+          <li><%= link_to "勉強", study_videos_path, class: "header__navi--genre" %></li>
+          <li><%= link_to "動物", animal_videos_path, class: "header__navi--genre" %></li>
+        </ul>
+      </li>
+    </ul>
+    <li><%= link_to "みんなの掲示板一覧", posts_path, class: "header__navi--board" %></li>
+    <% if user_signed_in? %>
+      <ul class="header__navi--top">
+        <li class="header__navi--top__genre"><%= current_user.name %>
+          <ul>
+            <li id="evryone"><%= link_to "あなたの投稿一覧", "/users/#{current_user.id}", class: "header__navi--genre" %></li>
+            <li><%= link_to "アカウント編集", edit_user_registration_path, class: "header__navi--genre" %></li>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__navi--genre" %></li>
+          </ul>
+        </li>
+      </ul>
+        <li><%= link_to "掲示板投稿", new_post_path, class: "posts__navi--board" %><li>
+    <% else %>
+      <li><%= link_to "ログイン", new_user_session_path , class: "posts__navi--user" %></li>
+    <% end %>
+  </div> 
+</header>
+
+<h1 class="h1">アニメ</h1>
+<div class="container">
+  <div class="container__video">
+    <div class="container__video--box">
+      <div class="container__video--box--1">
+        <iframe width="700" height="400" src="https://www.youtube-nocookie.com/embed/AmmGFW4ycOo?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="list">
+          <p class="list-text">video1</p>
+        </div>
+      </div>
+    </div>
+    <div class="container__video--box">
+      <div class="container__video--box--1">
+        <iframe width="700" height="400" src="https://www.youtube-nocookie.com/embed/ad0fHdQfc_g?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="list">
+          <p class="list-text">video2</p>
+        </div>
+      </div>
+    </div>
+    <div class="container__video--box">
+      <div class="container__video--box--1">
+        <iframe width="700" height="400" src="https://www.youtube-nocookie.com/embed/z4Q6Q0dcXz8?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="list">
+          <p class="list-text">video3</p>
+        </div>
+      </div>
+    </div>
+    <div class="container__video--box">
+      <div class="container__video--box--1">
+        <iframe width="700" height="400" src="https://www.youtube-nocookie.com/embed/evAOrdt-0M4?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="list">
+          <p class="list-text">video4</p>
+        </div>
+      </div>
+    </div>
+    <div class="container__video--box">
+      <div class="container__video--box--1">
+        <iframe width="700" height="400" src="https://www.youtube-nocookie.com/embed/BpiILiEZuF4?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="list">
+          <p class="list-text">video5</p>
+        </div>
+      </div>
+    </div>
+    <div class="container__video--box">
+      <div class="container__video--box--1">
+        <iframe width="700" height="400" src="https://www.youtube-nocookie.com/embed/eUW4ExaHNZA?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="list">
+          <p class="list-text">video6</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

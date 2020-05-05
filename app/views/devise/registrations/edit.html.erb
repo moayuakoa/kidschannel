@@ -1,0 +1,80 @@
+<header class="header">
+  <div class="header__title">
+    <%= link_to "Kids Channel", root_path, class: "header__title__top" %>
+  </div>
+  <div class="header__navi">
+    <ul class="header__navi--top">
+      <li class="header__navi--top__genre">動画ジャンル
+        <ul>
+          <li><%= link_to "アニメ", videos_path, class: "header__navi--genre" %></li>
+          <li><%= link_to "勉強", study_videos_path, class: "header__navi--genre" %></li>
+          <li><%= link_to "動物", animal_videos_path, class: "header__navi--genre" %></li>
+        </ul>
+      </li>
+    </ul>
+    <li><%= link_to "みんなの掲示板一覧", posts_path, class: "header__navi--board" %></li>
+    <% if user_signed_in? %>
+      <ul class="header__navi--top">
+        <li class="header__navi--top__genre"><%= current_user.name %>
+          <ul>
+            <li id="evryone"><%= link_to "あなたの投稿一覧", "/users/#{current_user.id}", class: "header__navi--genre" %></li>
+            <li><%= link_to "アカウント編集", edit_user_registration_path, class: "header__navi--genre" %></li>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__navi--genre" %></li>
+          </ul>
+        </li>
+      </ul>
+      <%= link_to "掲示板投稿", new_post_path, class: "posts__navi--board" %>
+    <% else %>
+      <%= link_to "ログイン", new_user_session_path , class: "navi__user--login" %>
+      <%= link_to "新規登録", new_user_registration_path, class: "navi__user--new" %>
+    <% end %>
+  </div> 
+</header>
+
+<h1 class="h1">
+  <%= @user.name %>さんの編集ページ
+</h1>
+<div class="contents--box__back">
+  <div class="contents--box__new">
+  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.label :email, "変更するメールアドレス" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :password %> <i>(変更しない場合は空白のままにします)</i><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+        <% if @minimum_password_length %>
+          <br />
+          <em><%= @minimum_password_length %> 文字以上</em>
+        <% end %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :current_password %> <i>(変更を確認するには、現在のパスワードが必要です)</i><br />
+        <%= f.password_field :current_password, autocomplete: "current-password" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "変更" , class: "actions__button" %>
+      </div>
+    <% end %>
+
+    <h3>アカウントをキャンセル</h3>
+
+    <p>変更しますか？ <%= button_to "アカウントをキャンセル", registration_path(resource_name), data: { confirm: "変更しますか？" }, method: :delete %></p>
+  </div>
+</div>

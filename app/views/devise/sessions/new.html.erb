@@ -1,0 +1,53 @@
+<header class="header">
+  <div class="header__title">
+    <%= link_to "Kids Channel", root_path, class: "header__title__top" %>
+  </div>
+  <div class="header__navi">
+    <% if user_signed_in? %>
+      <ul class="header__navi--top">
+        <li class="header__navi--top__genre"><%= current_user.name %> %>
+          <ul>
+            <li><%= link_to "マイページ", "/users/#{current_user.id}", class: "header__navi--genre" %></li>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__navi--genre" %></li>
+          </ul>
+        </li>
+      </ul>
+        <%= link_to "掲示板投稿", new_post_path, class: "posts__navi--board" %>
+    <% else %>
+      <%= link_to "ログイン", new_user_session_path , class: "navi__user--login" %>
+      <%= link_to "新規登録", new_user_registration_path, class: "navi__user--new" %>
+    <% end %>
+  </div> 
+</header>
+
+<div class="contents--box__back">
+  <h1 class="h1">ログイン</h1>
+    <div class="contents--box__new">
+
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+        <div class="field">
+          <%= f.label :email, "メールアドレス" %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password, "パスワード" %><br />
+          <%= f.password_field :password, autocomplete: "current-password" %>
+        </div>
+
+        <% if devise_mapping.rememberable? %>
+          <div class="field">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        <% end %>
+
+        <div class="actions">
+          <%= f.submit "ログイン", class: "actions__button" %>
+        </div>
+        <%= render "devise/shared/links" %>
+      <% end %>
+
+    </div>
+</div>

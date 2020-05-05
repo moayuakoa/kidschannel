@@ -1,0 +1,127 @@
+.navi__user--login {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  margin-left: 500px;
+  margin-right: 50px;
+}
+.navi__user--new {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+.contents--box__back {
+  background: url('/signs.jpg'); 
+  background-size:  cover;
+  height: calc(100% - 80px);
+}
+.contents--box__new {
+  text-align: center;
+  height: calc(100% - 75px);
+}
+
+.new_user {
+  height: 100%;
+  opacity: 0.9;
+}
+
+.field {
+  padding-top: 20px;
+  font-weight: bold;
+}
+
+#user_name {
+  margin-top: 10px;
+  width: 300px;
+  height: 50px;
+}
+
+#user_email {
+  width: 300px;
+  height: 50px;
+}
+
+#user_password {
+  width: 300px;
+  height: 50px;
+}
+
+#user_password_confirmation {
+  width: 300px;
+  height: 50px;
+}
+
+// btn
+.actions {
+  margin:15px 0;
+}
+.actions__button {
+  display: inline-block;
+  position: relative;
+  padding: 0.5em 1.4em;
+  text-decoration: none;
+  background: #668ad8;/*ボタン色*/
+  color: #FFF;
+  border-bottom: solid 5px #36528c;/*ボタン色より暗めに*/
+  border-right: solid 5px #5375bd;/*ボタン色より暗めに*/
+  }
+  .actions__button:before {
+    content: " ";
+    position: absolute;
+    bottom: -5px;
+    left: -1px;
+    width: 0;
+    height: 0;
+    border-width: 0 6px 6px 0px;
+    border-style: solid;
+    border-color: transparent;
+    border-bottom-color: #FFF;
+  }
+  .actions__button:after {
+    content: " ";
+    position: absolute;
+    top: -1px;
+    right: -5px;
+    width: 0;
+    height: 0;
+    border-width: 0px 6px 6px 0px;
+    border-style: solid;
+    border-color: #FFF;
+    border-bottom-color: transparent;
+  }
+  .actions__button:active {
+    /*ボタンを押したとき*/
+    border:none;
+    -webkit-transform: translate(6px,6px);
+    transform: translate(6px,6px);
+  }
+  .actions__button:active:after, .actions__button:active:before {
+    content: none;/*ボタンを押すと線が消える*/
+  }
+  
+
+// cheakbox
+#user_remember_me {
+  width: 20px;
+  height: 20px;
+  margin-top: 10px;
+}
+
+.sign--btn {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.forget {
+  display: none;
+}
+
+.user--message {
+  text-decoration: none;
+  color: black;
+}
+.errors {
+  display: flex;
+  padding-left: 400px;
+}
