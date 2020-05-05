@@ -45,7 +45,7 @@
           ニックネーム：<%= link_to post.name, post_path(post.id), class: "post-name__userName" %>
         </div>
         <div class="content__message">
-          コメント：<%= link_to post.content, post_path(post.id), class: "post-content__message" %>
+          コメント：<%= link_to post.text, post_path(post.id), class: "post-content__message" %>
         </div>
       </div>
     <% end %>
