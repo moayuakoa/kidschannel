@@ -10,7 +10,7 @@ body {
   display: flex;
   z-index: 1;
   position: fixed;
-  box-shadow: inset 0 0 5px 8px #333;
+  box-shadow: inset 0 0 5px 5px darkgray;
   
   &__title {
     padding-left: 50px;
@@ -95,27 +95,28 @@ body {
   height: 800px;
 }
 .message {
+  width: 100%;
   position: absolute;
   top: 250px;
   color: black;
   font-weight: bold;
   text-align: center;
-  background-color: white;
-  height: 350px;
   &__top {
     font-size: 80px;
     font-weight: bold;
+    background: lightyellow;
+    opacity: 0.8;
   }
   &__body {
     font-size: 20px;
     text-align: center;
-    color: blue;
+    color: black;
     padding-top: 20px;
     
   }
 }
 #player1 {
-  opacity: 0.3;
+  opacity: 0.1;
 }
 
 // contents
